@@ -3,3 +3,4 @@
 .git
 .vscode
 .github
+.mypy_cache
