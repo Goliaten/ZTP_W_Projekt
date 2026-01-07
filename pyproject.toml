@@ -5,11 +5,11 @@ description = "Add your description here"
 readme = "README.md"
 requires-python = ">=3.11"
 dependencies = [
-    "scikit-learn",
+    "scikit-learn>=1.8.0",
 ]
 
 [dependency-groups]
 dev = [
-    "mypy",
-    "ruff",
+    "mypy>=1.19.1",
+    "ruff>=0.14.10",
 ]
