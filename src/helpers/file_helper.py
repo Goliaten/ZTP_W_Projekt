@@ -4,6 +4,8 @@ from typing import Any, List, Tuple
 import scipy.io as io
 
 from src import config
+import numpy.typing as npt
+import numpy as np
 
 
 def get_files(
@@ -16,16 +18,20 @@ def get_files(
     return out
 
 
-def open_file(filename: str):
-    # TODO implement
-    raise NotImplementedError()
+def open_file(filepath: str) -> Tuple[int, npt.NDArray[np.integer]]:
+    root, ext = os.path.splitext(filepath)
+    match ext:
+        case "wav":
+            return open_wav(filepath)
+        case _:
+            raise ValueError("Unknown file extension")
 
 
-def open_wav(filename: str) -> Tuple[int, List[Any]]:
-    fs, x = io.wavfile.read(os.path.join(config.INPUT_PATH, filename))
+def open_wav(filepath: str) -> Tuple[int, npt.NDArray[np.integer]]:
+    fs, x = io.wavfile.read(filepath)
     return fs, x
 
 
-def open_mp3(filename: str):
+def open_mp3(filepath: str):
     # TODO implement
     raise NotImplementedError()
