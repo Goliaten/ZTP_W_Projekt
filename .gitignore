@@ -1,6 +1,9 @@
-.venv
-.python-version
 .git
 .vscode
 .github
+
 .mypy_cache
+.venv
+
+.python-version
+uv.lock
