@@ -1,0 +1,25 @@
+# TODO
+- [ ] otwieranie pliku dźwiękowego
+  - [ ] .wav
+  - [ ] .mp3
+- [ ] jeśli dźwięk jest stereo (albo więcej), to bierzemy tylko jeden z nich
+- [ ] Trzeba sygnał oczyścić i usunąć śmieci
+  - [ ] Aby określić początek sygnału, skanujemy w poszukiwaniu pierwszej wartości przynajmniej 10% wartości maksymalnej
+  - [ ] Aby określić koniec sygnału, skanujemy w poszukiwaniu ostatniej wartości, która ma 10% wartości max sygnału
+- [ ] wyznaczyć cechy funkcji czasowej
+  - [ ] attack time - wybrzmiewanie
+  - [ ] attack time - narastanie
+  - [ ] przejście przez 0 - ZCR
+  - [ ] stosunek narastania do wybrzmiewania
+- [ ] Zamienić sygnał na funkcję widma
+  - [ ] trzeba usuwać aliasing i przecieki
+  - [ ] Do analizy trzeba brać małe okno sygnału zamiast całego sygnału (np. 20ms). ANalizując kolejne okna trzeba je nakładać na siebie (np. 50% nałożenia)
+  - [ ] widmo trzeba podzielić przez 2
+  - [ ] normalizacja
+- [ ] wyznaczyć cechy funkcji widma
+  - [ ] środek ciężkości - średnia wartośc widma
+  - [ ] min-man - rozrzut
+  - [ ] mediana
+  - [ ] odchylenei standardowe
+  - [ ] moment widmowy rzędu K
+  - [ ] parametry parzyste i nieparzyste
