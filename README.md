@@ -20,3 +20,7 @@ python -m src.main
 ```
 
 ## Parametry
+
+# Dodawanie kolejnych testów
+## Dla sygnału w formie czasu
+## Dla sygnału w formie widma
