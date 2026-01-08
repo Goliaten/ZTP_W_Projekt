@@ -21,10 +21,10 @@ def get_files(
 def open_file(filepath: str) -> Tuple[int, npt.NDArray[np.integer]]:
     root, ext = os.path.splitext(filepath)
     match ext:
-        case "wav":
+        case ".wav":
             return open_wav(filepath)
         case _:
-            raise ValueError("Unknown file extension")
+            raise ValueError(f"Unknown file extension: {ext}")
 
 
 def open_wav(filepath: str) -> Tuple[int, npt.NDArray[np.integer]]:
