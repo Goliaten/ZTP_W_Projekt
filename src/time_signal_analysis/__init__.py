@@ -13,9 +13,10 @@ for file in os.listdir(__path__[0]):
         continue
     module_candidate = il.import_module(f".{file}", __package__)
 
+    # validade module
     try:
-        # validade module
         assert module_candidate.__dict__.get("analyse") is not None
+        # TODO should also check signature of this function
         valid_module: AnalysisModule = module_candidate  # type: ignore
     except AssertionError:
         print(f"Module {file} is invalid. It's missing `analyse` method")
