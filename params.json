@@ -3,6 +3,9 @@
         "signal_cleaning":{
             "min_value_ratio_left": 0.1,
             "min_value_ratio_right": 0.1
+        },
+        "attack_time":{
+            "threshold": 0.1
         }
     }
 }
