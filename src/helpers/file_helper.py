@@ -1,7 +1,7 @@
 from glob import glob
 import os
-from typing import Any, List, Tuple
-import scipy.io as io
+from typing import List, Tuple
+import scipy.io as io  # type: ignore
 
 from src import config
 import numpy.typing as npt
