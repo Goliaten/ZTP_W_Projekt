@@ -1,4 +1,4 @@
-from scipy.signal import hilbert
+from scipy.signal import hilbert  # type: ignore
 import numpy.typing as npt
 import numpy as np
 
