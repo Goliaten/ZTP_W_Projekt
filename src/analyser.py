@@ -12,7 +12,7 @@ def analyse_soundfile(path_to_file: str) -> Dict[str, Any]:
     cleaned_time_data = ommit_noise_in_time_signal(raw_time_data, freq)
     exit()
     for name, mod in time_analysis.analyse_modules.items():
-        mod.analyse(data=raw_time_data, freq=freq)
+        mod.analyse(data=cleaned_time_data, raw_data=raw_time_data, freq=freq)
 
     # analyse cleaned time data
     # convert time data to spectrum data

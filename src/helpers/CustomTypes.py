@@ -10,6 +10,10 @@ class AnalysisModule(ModuleType):
     @staticmethod
     @abstractmethod
     def analyse(
-        *, data: npt.NDArray[np.integer], freq: int, **kwargs
+        *,
+        data: npt.NDArray[np.integer],
+        raw_data: npt.NDArray[np.integer],
+        freq: int,
+        **kwargs,
     ) -> Dict[str, Any]:
         pass
