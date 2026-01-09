@@ -6,6 +6,10 @@
         },
         "attack_time":{
             "threshold": 0.1
+        },
+        "release_time":{
+            "sustain_threshold": 0.9,
+            "release_threshold": 0.1
         }
     }
 }
