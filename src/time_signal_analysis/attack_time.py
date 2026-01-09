@@ -24,8 +24,8 @@ def analyse(
     if len(above_threshold) == 0:
         return {}
 
-    start = above_threshold[0]
-    peak = np.argmax(envelope)
+    start = float(above_threshold[0])
+    peak = float(np.argmax(envelope))
 
     data_len = len(data)
 
