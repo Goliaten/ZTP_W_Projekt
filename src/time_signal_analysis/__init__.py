@@ -23,3 +23,5 @@ for file in os.listdir(__path__[0]):
         continue
 
     analyse_modules[file] = valid_module
+
+del file, module_candidate, valid_module, os, il, Dict, AnalysisModule
