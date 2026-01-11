@@ -15,11 +15,11 @@ def analyse(
     main_param = Params.get("time_analysis").get("zcr")
     num_of_samples = main_param.get("samples_to_analyse")
 
-    max_val = data.max()
-    data = data[max_val : max_val + min(num_of_samples, len(data))]
+    max_val = data.argmax()
+    data_ = data[max_val : max_val + min(num_of_samples, len(data))]
 
-    zero_crossings = np.where(np.diff(np.sign(data)))[0]
+    zero_crossings = np.where(np.diff(np.sign(data_)))[0]
 
-    zcr = len(zero_crossings) / (len(data) / freq)
+    zcr = len(zero_crossings) / (len(data_) / freq)
 
     return {"zcr": zcr}
