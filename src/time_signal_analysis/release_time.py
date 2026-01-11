@@ -44,7 +44,7 @@ def analyse(
     start = float(release_start)
     end = float(release_end)
 
-    return {
+    data_out = {
         "absolute": {
             "start": start,
             "end": end,
@@ -61,3 +61,4 @@ def analyse(
             "period": (end - start) / freq,
         },
     }
+    return {"release_time": data_out["relative"]["period"]}
