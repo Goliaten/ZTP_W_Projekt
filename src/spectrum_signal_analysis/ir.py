@@ -7,7 +7,7 @@ from src.helpers.specter_helper import fourier_transform
 
 
 def analyse(
-    windows: Generator[npt.NDArray, None, None],
+    window_generator: Generator[npt.NDArray, None, None],
     freq: int,
 ) -> Any:
     """
@@ -29,7 +29,7 @@ def analyse(
     results = []
 
     # Analyze each window from the generator
-    for window in windows:
+    for window in window_generator:
         # Apply Hamming window to reduce spectral leakage
         windowed_signal = apply_window_function(window, window_type="hamming")
 

@@ -6,7 +6,7 @@ from src.helpers.signal_cleaner import normalise_specter_signal, apply_window_fu
 from src.helpers.specter_helper import fourier_transform
 
 
-def analyse(windows: Generator[npt.NDArray, None, None], freq: int) -> Any:
+def analyse(window_generator: Generator[npt.NDArray, None, None], freq: int) -> Any:
     """
     Analyze spectrum signal - BR (Spectral Centroid).
 
@@ -26,7 +26,7 @@ def analyse(windows: Generator[npt.NDArray, None, None], freq: int) -> Any:
     results = []
 
     # Analyze each window from the generator
-    for window in windows:
+    for window in window_generator:
         # Apply Hamming window to reduce spectral leakage
         windowed_signal = apply_window_function(window, window_type="hamming")
 
