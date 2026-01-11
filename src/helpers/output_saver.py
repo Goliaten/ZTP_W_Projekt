@@ -33,19 +33,17 @@ def save_dict_to_csv(
     for row_dict in data.values():
         all_columns.update(row_dict.keys())
 
-    columns = sorted(list(all_columns))
+    columns = ["row"] + sorted(list(all_columns))
 
     # Write to CSV
     with open(filepath, "w", newline="", encoding="utf-8") as csvfile:
-        writer = csv.DictWriter(
-            csvfile, fieldnames=[""] + columns, extrasaction="ignore"
-        )
+        writer = csv.DictWriter(csvfile, fieldnames=columns, extrasaction="ignore")
 
         # Write header
-        writer.writerow(dict(zip([""] + columns, [""] + columns)))
+        writer.writerow(dict(zip(columns, columns)))
 
         # Write rows
         for row_name, row_data in data.items():
-            row_dict: Dict[str, Union[str, float]] = {"": row_name}
+            row_dict: Dict[str, Union[str, float]] = {"row": row_name}
             row_dict.update(row_data)  # type: ignore
             writer.writerow(row_dict)
