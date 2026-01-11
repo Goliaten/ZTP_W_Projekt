@@ -1,16 +1,32 @@
 # Uruchamianie
 ## Zależności
+Python w wersji `>=3.11`
+
 ### Przy użyciu uv
+#### Linux
 ```
-uv venv &&
+uv venv
 source .venv/bin/activate
+uv sync
+```
+#### Windows
+```
+uv venv
+.venv\Scripts\activate
 uv sync
 ```
 
 ### Przy użyciu pip
+#### Linux
 ```
-python -m venv venv &&
-source .venv/bin/activate &&
+python -m venv .venv
+source .venv/bin/activate
+python -m pip install -r requirements.txt
+```
+#### Windows
+```
+python -m venv .venv
+.venv\Scripts\activate
 python -m pip install -r requirements.txt
 ```
 
@@ -24,3 +40,4 @@ Struktura jest następująca:
 ```python
 python -m src.main
 ```
+## Wyniki
