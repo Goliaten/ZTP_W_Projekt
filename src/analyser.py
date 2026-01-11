@@ -1,14 +1,10 @@
-import os
 from typing import Any, Dict
 
-from src.helpers.debug_helper import plot_fft
 from src.helpers.file_helper import open_file
 from src.helpers.params_helper import Params
 from src.helpers.signal_cleaner import (
-    normalise_specter_signal,
     ommit_noise_in_time_signal,
 )
-from src.helpers.specter_helper import fourier_transform
 from src.helpers.window_helper import windower
 import src.time_signal_analysis as time_analysis
 import src.spectrum_signal_analysis as spectrum_analysis
@@ -36,7 +32,5 @@ def analyse_soundfile(path_to_file: str) -> Dict[str, Any]:
         )
         res = mod.analyse(window_generator=window_generator, freq=freq)
         out[name] = res
-    exit()
-    # get window function
-    # TODO
-    raise NotImplementedError()
+
+    return out
