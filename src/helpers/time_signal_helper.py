@@ -5,4 +5,4 @@ import numpy as np
 
 def get_envelope(signal: npt.NDArray[np.integer]) -> npt.NDArray[np.integer]:
     analytic_signal = hilbert(signal)
-    return np.abs(analytic_signal)
+    return np.abs(analytic_signal)  # type:ignore
