@@ -15,7 +15,7 @@ class AnalysisModule(ModuleType):
         raw_data: npt.NDArray[np.integer],
         freq: int,
         **kwargs,
-    ) -> Dict[str, Any]:
+    ) -> Any:
         pass
 
 
@@ -24,5 +24,5 @@ class SpectrumModule(ModuleType):
     @abstractmethod
     def analyse(
         *, window_generator: Generator[npt.NDArray, None, None], freq: int
-    ) -> Dict[str, Any]:
+    ) -> Any:
         pass

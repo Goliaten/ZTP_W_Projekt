@@ -11,7 +11,7 @@ def analyse(
     raw_data: npt.NDArray[np.integer],
     freq: int,
     **kwargs,
-) -> Dict[str, Any]:
+) -> Any:
     main_param = Params.get("time_analysis").get("zcr")
     num_of_samples = main_param.get("samples_to_analyse")
 
@@ -22,4 +22,4 @@ def analyse(
 
     zcr = len(zero_crossings) / (len(data_) / freq)
 
-    return {"zcr": zcr}
+    return zcr

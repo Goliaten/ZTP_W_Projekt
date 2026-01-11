@@ -12,7 +12,7 @@ def analyse(
     raw_data: npt.NDArray[np.integer],
     freq: int,
     **kwargs,
-) -> Dict[str, Any]:
+) -> Any:
     main_param = Params.get("time_analysis").get("release_time")
     envelope = get_envelope(data)
 
@@ -61,4 +61,4 @@ def analyse(
             "period": (end - start) / freq,
         },
     }
-    return {"release_time": data_out["relative"]["period"]}
+    return data_out["relative"]["period"]

@@ -12,7 +12,7 @@ def analyse(
     raw_data: npt.NDArray[np.integer],
     freq: int,
     **kwargs,
-) -> Dict[str, Any]:
+) -> Any:
     main_param = Params.get("time_analysis").get("attack_time")
     envelope = get_envelope(data)
     thresh = main_param.get("threshold")
@@ -54,5 +54,5 @@ def analyse(
             "period": (peak - start) / freq,
         },
     }
-    return {"attack_time": data_out["relative"]["period"]}
+    return data_out["relative"]["period"]
     # return (peak - start) / sr  # in seconds
