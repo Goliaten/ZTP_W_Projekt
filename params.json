@@ -10,6 +10,18 @@
         "release_time":{
             "sustain_threshold": 0.9,
             "release_threshold": 0.1
+        },
+        "zcr":{
+            "samples_to_analyse": 1000
+        }
+    },
+    "window_generator":{
+        "length_sec":0.02,
+        "overlap":0.5
+    },
+    "spectrum_analysis":{
+        "window_function":{
+            "window_type":"hamming"
         }
     }
 }
