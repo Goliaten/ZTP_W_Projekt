@@ -1,18 +1,54 @@
+from typing import Optional
 import numpy.typing as npt
 import numpy as np
 
 from src.helpers.params_helper import Params
 
 
-def normalise_specter_signal():
-    # TODO
-    raise NotImplementedError()
+def normalise_specter_signal(
+    spectrum: npt.NDArray[np.complexfloating],
+) -> npt.NDArray[np.floating]:
+    # Calculate magnitude spectrum
+    magnitude = np.abs(spectrum)
+
+    # Normalize by maximum value
+    max_magnitude = np.max(magnitude)
+    if max_magnitude > 0:
+        normalized = magnitude / max_magnitude
+    else:
+        normalized = magnitude
+
+    return normalized
 
 
-def apply_window_function():
-    # hamming, hanning
-    # TODO
-    raise NotImplementedError()
+def apply_window_function(
+    signal: npt.NDArray[np.floating], window_type: Optional[str] = None
+) -> npt.NDArray[np.floating]:
+    if not window_type:
+        main_param = Params.get("spectrum_analysis").get("window_function")
+        window_type = main_param.get("window_type")
+
+    signal_len = len(signal)
+    windows = {
+        "hamming": np.hamming,
+        "hanning": np.hanning,
+        "blackman": np.blackman,
+        "bartlett": np.bartlett,
+    }
+
+    # Create window based on type
+    if window_type in windows:
+        window = windows[window_type](signal_len)
+    else:
+        raise ValueError(
+            f"Unknown window type: {window_type}. "
+            f"Supported types: {', '.join(list(windows.keys()))}"
+        )
+
+    # Apply window to signal
+    windowed_signal = signal * window
+
+    return windowed_signal
 
 
 def ommit_noise_in_time_signal(
